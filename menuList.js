@@ -15,8 +15,13 @@ exports.menuList = [
           const win2 = new BrowserWindow({
             height: 300,
             width: 400,
+            show: false,
+            backgroundColor: "#2e2c29",
+            movable: false,
           });
           win2.loadFile("./index2.html");
+          //win2.loadURL("https://google.com");
+          win2.once("ready-to-show", () => win2.show());
         },
       },
       {
