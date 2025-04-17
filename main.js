@@ -1,13 +1,21 @@
-const { app, BrowserWindow } = require("electron/main");
-const path = require("node:path");
+const { app, BrowserWindow, Menu } = require("electron/main");
+/* const path = require("node:path"); */
+const { menuList } = require("./menuList");
 
+// Menu
+const menuItems = menuList;
+
+const menu = Menu.buildFromTemplate(menuItems);
+Menu.setApplicationMenu(menu);
+
+//Create new window
 const createWindow = () => {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
-    webPreferences: {
+    /*  webPreferences: {
       preload: path.join(__dirname, "preload.js"),
-    },
+    }, */
   });
 
   win.loadFile("index.html");
