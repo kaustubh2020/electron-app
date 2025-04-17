@@ -1,3 +1,7 @@
+require("electron-reload")(__dirname, {
+  electron: require(`${__dirname}/node_modules/electron`),
+});
+
 const { app, BrowserWindow, Menu } = require("electron/main");
 /* const path = require("node:path"); */
 const { menuList } = require("./menuList");

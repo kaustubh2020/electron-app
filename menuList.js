@@ -1,4 +1,5 @@
 const { app, shell } = require("electron");
+const { BrowserWindow } = require("electron/main");
 
 exports.menuList = [
   {
@@ -8,6 +9,16 @@ exports.menuList = [
   {
     label: "File",
     submenu: [
+      {
+        label: "New Window",
+        click: async () => {
+          const win2 = new BrowserWindow({
+            height: 300,
+            width: 400,
+          });
+          win2.loadFile("./index2.html");
+        },
+      },
       {
         label: "Learn More",
         click: async () => {
